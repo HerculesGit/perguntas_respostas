@@ -1,0 +1,35 @@
+<!-- funcionalidade de partials - que são partes que você quer aproveitar
+  no caso aproveitamos o header e o footer que são os scripts
+-->
+
+<!-- importando partials -->
+<%- include('partials/header.ejs'); %>
+
+<body>
+  <%- include ('partials/navbar.ejs'); %>
+  <div class="container">
+    <div class="card" id="formulario-pergunta">
+      <div class="card-header">
+        <h3>Realizar pergunta </h3>
+      </div>
+      <div class="card-body">
+
+        <!-- Precisamos definir qual o método o formulário precisa ter: aula 36 -->
+        <!-- GET (nao é legal) é os query params que usa a url. ex: /perguntar?nome=hercules&lang=javascript -->
+        <!-- POST trabalha na requisição, não afeta a url e se mandar uma senha, nao fica exposta na url -->
+        <!-- a action é qual a rota vamos enviar os dados -->
+        <form method="POST" action="/salvarpergunta">
+          <label> Título </label>
+          <!-- Setar os name="titulo", por exemplo, é útil para identificar no backend usando o body-parser -->
+          <input class="form-control" type="text" placeholder="Título" name="titulo" />
+          <br>
+          <label> Descrição </label>
+          <textarea class="form-control" placeholder="Descreva sua pergunta aqui" name="descricao"></textarea>
+          <br>
+          <button class="btn btn-primary"> Perguntar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<%- include('partials/footer.ejs'); %>

@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs'); %>
+
+<body>
+  <%- include ('partials/navbar.ejs'); %>
+  <div class="container">
+    <hr>
+    <h1> <%= pergunta.titulo %> </h1>
+    <p> <%= pergunta.descricao %> </p>
+    <hr>
+
+    <form method="POST" action="/responder">
+      <h3> Responda </h3>
+      <!-- receber o corpo da resposta -->
+      <!-- name=corpo para identificar no bodyParser -->
+      <label for="corpo"> Resposta: </label>
+      <textarea class="form-control" placeholder="Digite uma resposta" name="corpo"></textarea>
+      <br>
+      <!-- hidden para esconder para o usuário -->
+      <input type="hidden" name="perguntaId" value="<%= pergunta.id %>">
+      <button class="btn btn-primary" type="submit"> Responder </button>
+    </form>
+
+    <hr>
+    <h3> Respostas </h3>
+    <hr>
+    <% respostas.forEach((resposta)=> {%>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <p><%= resposta.corpo %></p>
+      </div>
+    </div>
+
+    <%})%>
+  </div>
+</body>
+
+<%- include('partials/footer.ejs'); %>

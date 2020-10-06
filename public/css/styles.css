@@ -1,0 +1,12 @@
+body {
+  background-color: #eceff1;
+}
+
+#a-logo>img {
+  /* width: 5vh; */
+  height: 5vh;
+}
+
+#formulario-pergunta {
+  margin-top: 5vh; /* é uma unidade que corresponde a porcentagem da tela. 5vh é basicamente a altura da tela de 5%  */ 
+}
